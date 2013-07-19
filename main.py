@@ -19,16 +19,20 @@ Licenza GPL
 from game import Game
 from players import *
 
-ah1 = AlwaysHunt('ah1')
-ah2 = AlwaysHunt('ah2')
-ah3 = AlwaysHunt('ah3')
-as1 = AlwaysSlack('as1')
-as2 = AlwaysSlack('as2')
-as3 = AlwaysSlack('as3')
-ch1 = CyclicHunter('ch1')
-ch2 = CyclicHunter('ch2', cycle=5)
-ch3 = CyclicHunter('ch3', cycle=10)
-ch4 = CyclicHunter('ch4', cycle=15)
 
-g = Game([ah1, ah2, ah3, as1, as2, as3, ch1, ch2, ch3, ch4])
+g = Game([
+    AlwaysHunt('ah1'),
+    AlwaysHunt('ah2'),
+    AlwaysSlack('as1'),
+    AlwaysSlack('as2'),
+    CyclicHunter('ch1'),
+    CyclicHunter('ch2', cycle=5),
+    CyclicHunter('ch3', cycle=10),
+    ReputationHunter('rh1'),
+    ReputationHunter('rh2'),
+    ReputationHunter('rh3'),
+    ReputationHunter('rh4'),
+    ReputationHunter('rh5'),
+    ReputationHunter('rh6'),
+          ])
 g.main()

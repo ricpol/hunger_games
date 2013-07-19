@@ -66,3 +66,23 @@ class CyclicHunter(BasePlayer):
             return ['s'] * len(player_reputations)
             
 
+class ReputationHunter(BasePlayer):
+    """Cacciamo solo con chi ha buona reputazione, 
+       ma proviamo anche a fregare chi ha ottima reputazione.
+       Per i primi turni, comunque, cacciamo sempre con tutti."""
+    def __init__(self, name):
+        BasePlayer.__init__(self, name)
+        self.upper_limit = .8 # sopra questo, non cacciamo
+        self.lower_limit = .4 # sotto questo, non cacciamo
+        self.always_hunt_until_round = 50 # per questi primi turni, cacciamo sempre
+    
+    def hunt_choices(self, round_number, current_food, current_reputation, 
+                     m, player_reputations):
+        if round_number <= self.always_hunt_until_round:
+            return ['h'] * len(player_reputations)
+        return ['h' if self.lower_limit <= rep <= self.upper_limit else 's' 
+                for rep in player_reputations]
+        
+    
+    
+        
