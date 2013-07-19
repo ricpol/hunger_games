@@ -1,0 +1,18 @@
+Python Hunger Games.
+====================
+ 
+Motore di gioco per testare le varie strategie e farle competere tra loro, 
+costruito in base alle regole illustrate qui
+
+https://brilliant.org/competitions/hunger-games/rules/
+
+Il motore di gioco vero e proprio e' in game.py,
+ma le strategie si impostano in players.py, 
+e il gioco si avvia da main.py. 
+
+Il gioco produce comune unico output un file log.txt 
+che occorre consultare alla fine per scoprire chi ha vinto, e tutto il resto. 
+
+
+(c) Riccardo Polignieri
+Licenza GPL
